@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: (c) 2025 Xronos Inc.
+# SPDX-License-Identifier: BSD-3-Clause
+
+header:
+  version: 16
+
+local_conf_header:
+  meta-source-archive: |
+    # Enable license tracking
+    INHERIT += " license"
+    
+    # Define where license information will be stored
+    LICENSE_DIRECTORY = "${DEPLOY_DIR}/licenses"
+
+    # enable SPDX metadata tracking
+    INHERIT += " create-spdx"
+    SPDX_INCLUDE_SOURCES = "1"
+    SPDX_ARCHIVE_PACKAGED = "1"
+    SPDX_ARCHIVE_SOURCES = "1"
+
+    # include source packages in the final image
+    INHERIT += " archiver"
+    ARCHIVER_MODE[src] = "original"
+    COPY_LIC_MANIFEST = "1"
+    COPY_LIC_DIRS = "1"
+    LICENSE_CREATE_PACKAGE = "1"
+
+    INHERIT += " source-archive"
+    ROOTFS_POSTPROCESS_COMMAND += "do_source_archive;"
+
+    # include the meta-source-archive package
+    IMAGE_INSTALL:append = " source-archive"
