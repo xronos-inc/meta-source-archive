@@ -10,8 +10,9 @@ COPYRIGHT = "Copyright (c) 2025 Xronos Inc. All rights reserved."
 AUTHOR = "Jeff C. Jensen <11233838+elgeeko1@users.noreply.github.com>"
 
 SRC_URI = "git://github.com/xronos-inc/meta-source-archive;protocol=https;branch=main"
-SRCREV = "${AUTOREV}"
-PV = "1.0.0-${AUTOREV}"
+# 1.0.0-scarthgap
+SRCREV = "1c881845fa99b96c6e184838d97424ed6522848a"
+PV = "1.0.0-scarthgap"
 S = "${WORKDIR}/git"
 
 LICENSE = "BSD-3-Clause"
